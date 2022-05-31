@@ -1,5 +1,5 @@
-terraform {
-  backend "s3" {}
+provider "aws" {
+  region = "ap-south-1"
 }
 
 resource "aws_ssm_parameter" "parameters" {
@@ -10,3 +10,14 @@ resource "aws_ssm_parameter" "parameters" {
   value="${element(each.value,1)}"
   tags="${var.master_tags}"
 }
+
+
+# secret for codebuild
+# arn:aws:secretsmanager:ap-south-1:678323926802:secret:codebuild/myproject-wYNmpL
+#  Username amiya
+# Password Aklm@*6754
+
+#  codepipeline id 26124204
+# arn:aws:codestar-connections:ap-south-1:678323926802:connection/d4615afb-0fa1-41d8-b8b4-4acb18b987eb
+
+

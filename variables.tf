@@ -1,5 +1,5 @@
 ##############
-#main
+#variable for main
 ##############
 
 variable "ssm-infra-key-value-map" {
@@ -9,12 +9,12 @@ variable "ssm-infra-key-value-map" {
 
 variable "project" {
   description = "name of project"
-  type = "string"
+  type = string
 }
 
 variable "ssm-path" {
   description = "path to ssm params"
-  type = "string"
+  type = string
 }
 
 variable "env" {
@@ -36,5 +36,5 @@ variable "master_tags" {
 
 variable "project" {
   description = "name of project"
-  type = "string"
+  type = string
 }
