@@ -7,4 +7,11 @@ phases:
   
   build:
     commands:
-      - terraform apply --auto-approve
+      script: |
+        Write-Host "Fetching values files"
+        cd vars
+        $a=git ls-files
+        foreach ($i in $a) {
+            terraform apply -var-file=vars/i
+            echo "printing"$i
+        }

@@ -52,7 +52,7 @@ resource "aws_codebuild_project" "tf-apply" {
 resource "aws_codepipeline" "cicd_pipeline" {
 
     name = "tf-cicd"
-    role_arn = aws_iam_role.tf-codepipeline-role.arn
+    role_arn = aws_iam_role.terraform_codepipeline_role_employee.arn
 
     artifact_store {
         type="S3"
@@ -69,8 +69,8 @@ resource "aws_codepipeline" "cicd_pipeline" {
             version = "1"
             output_artifacts = ["tf-code"]
             configuration = {
-                FullRepositoryId = "davoclock/aws-cicd-pipeline"
-                BranchName   = "master"
+                FullRepositoryId = "DigitalSword123/my-project-param-store"
+                BranchName   = "main"
                 ConnectionArn = var.codestar_connector_credentials
                 OutputArtifactFormat = "CODE_ZIP"
             }

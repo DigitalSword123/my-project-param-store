@@ -7,4 +7,12 @@ phases:
   
   build:
     commands:
-      - terraform plan
+       script: |
+        Write-Host "Fetching values files"
+        cd vars
+        $a=git ls-files
+        foreach ($i in $a) {
+            terraform plan -var-file=vars/i
+            echo "printing"$i
+        }
+      

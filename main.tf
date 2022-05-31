@@ -2,6 +2,11 @@ provider "aws" {
   region = "ap-south-1"
 }
 
+resource "aws_s3_bucket" "codepipeline_artifacts" {
+  bucket = "employee-data-node-terraform-state-bucket-artifacts"
+  acl    = "private"
+} 
+
 resource "aws_ssm_parameter" "parameters" {
   for_each = "${var.ssm-infra-key-value-map}"
   name="${var.ssm-path}/${var.env}/${each.key}"
