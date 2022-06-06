@@ -1,4 +1,6 @@
 echo $PATH
+sudo apt-get update
+sudo apt install software-properties-common -y
 sudo apt-get install wget unzip -y
 # wget http://releases.hashicorp.com/terraform/0.12.5/terraform_1.2.2_linux_amd64.zip
 # echo "before unzip"
