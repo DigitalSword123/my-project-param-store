@@ -1,5 +1,5 @@
 provider "aws" {
-  shared_credentials_file = "$HOME/.aws/credentials"
+  shared_credentials_file = ".aws/credentials"
   profile = "default"
   region = "ap-south-1"
 }
