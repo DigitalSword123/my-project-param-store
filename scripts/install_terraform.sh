@@ -21,7 +21,7 @@ wget https://releases.hashicorp.com/terraform/1.0.5/terraform_1.0.5_linux_amd64.
 unzip terraform_1.0.5_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
 
-cd /usr/local/bin
+cd /usr/local
 ls -a
 # chmod +x binary_file_name
 terraform -v
