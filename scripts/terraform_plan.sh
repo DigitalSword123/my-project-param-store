@@ -1,6 +1,7 @@
 set -e
 
 echo "Fetching values files"
+terraform init
 # cd ./vars
 for FILE in ./vars/*
     do
