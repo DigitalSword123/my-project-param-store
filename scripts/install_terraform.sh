@@ -7,7 +7,7 @@ echo $PATH
 # sudo mv terraform /usr/local/bin/
 
 # newer version of terraform
-# sudo apt-get update
+sudo apt-get update
 sudo apt install software-properties-common -y
 sudo apt-get install wget unzip -y
 sudo apt-get install wget curl -y
