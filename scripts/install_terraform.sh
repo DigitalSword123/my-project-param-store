@@ -20,7 +20,7 @@ sudo apt-get install wget unzip -y
 wget https://releases.hashicorp.com/terraform/1.0.5/terraform_1.0.5_linux_386.zip
 unzip terraform_1.0.5_linux_386.zip
 ls -a
-# chmod +x terraform
+chmod +x terraform
 
 sudo mv terraform /usr/local/bin
 
