@@ -1,6 +1,7 @@
 set -e
 
 echo "Fetching values files"
+# terraform init -backend-config="access_key=<your access key>" -backend-config="secret_key=<your secret key>"
 terraform init
 # cd ./vars
 for FILE in ./vars/*
