@@ -5,6 +5,6 @@ cd ../vars
 $a=git ls-files
     foreach ($i in $a) {
         cd ..
-        ./terraform plan -var-file=vars/i
+        terraform plan -var-file=vars/i
         echo "printing"$i
     }
