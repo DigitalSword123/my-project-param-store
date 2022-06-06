@@ -16,11 +16,13 @@ echo $PATH
 # sudo apt-get update && sudo apt-get install terraform
 
 # older version of terraform
+sudo apt-get install gfortran
 sudo apt-get install wget unzip -y
-wget https://releases.hashicorp.com/terraform/1.0.5/terraform_1.0.5_linux_386.zip
-unzip terraform_1.0.5_linux_386.zip
+wget https://releases.hashicorp.com/terraform/1.0.5/terraform_1.0.5_linux_amd64.zip
+unzip terraform_1.0.5_linux_amd64.zip
 ls -a
 chmod +x terraform
+
 
 sudo mv terraform /usr/local/bin
 
