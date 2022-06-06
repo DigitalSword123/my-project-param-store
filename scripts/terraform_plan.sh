@@ -1,7 +1,7 @@
 set -e
 
 echo "Fetching values files"
-cd ../vars
+cd ./vars
 $a=git ls-files
     foreach ($i in $a) {
         cd ..
