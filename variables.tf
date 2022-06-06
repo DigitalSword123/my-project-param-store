@@ -4,18 +4,18 @@
 
 variable "ssm-infra-key-value-map" {
   description = "key value map"
-  type = map
+  type        = map(any)
 }
 
 variable "project" {
   description = "name of project"
-  type = string
+  type        = string
   default     = "node"
 }
 
 variable "ssm-path" {
   description = "path to ssm params"
-  type = string
+  type        = string
   default     = "/project"
 }
 
@@ -45,14 +45,14 @@ variable "master_tags" {
   }
 }
 
-variable dockerhub_credentials{
-    type = string
+variable "dockerhub_credentials" {
+  type = string
 }
 
-variable codestar_connector_credentials {
-    type = string
+variable "codestar_connector_credentials" {
+  type = string
 }
 
-variable ssm-infra-path {
-    type = string
+variable "ssm-infra-path" {
+  type = string
 }

@@ -1,0 +1,56 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:latest
+    steps:
+      - run: echo "build"
+
+  deploy: &deploy-env
+    docker:
+      - image: circleci/python:latest
+    
+    working_directory: ~/param-store
+
+    steps:
+      - checkout 
+      - setup_remote_docker
+
+      # - run: echo "deploy"
+      # - run: bash ./scripts/install_terraform.sh
+      # - run: bash ./scripts/apply_${tag}.sh
+      # - run: echo "deployed successfully"
+
+      - run: echo "deploy"
+      - run: bash ./scripts/install_terraform.sh
+      - run: bash terraform init
+      - run: bash ./scripts/terraform_plan.sh
+      - run: bash ./scripts/terraform_apply.sh
+      - run: echo "deployed successfully"
+
+  deploy_stage:
+    <<: *deploy-env
+
+
+  deploy_prod:
+    <<: *deploy-env
+    environment:
+      tag: prod
+
+workflows:
+  version: 2
+
+  stage_workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: main
+      - deploy_stage:
+          filters:
+            branches:
+              only: main
+          requires:
+            - build 
+            

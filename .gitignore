@@ -32,3 +32,5 @@ override.tf.json
 id_ed25519
 .terraform.lock.hcl
 terraform.exe
+./vars/terraform.exe
+.terraform
