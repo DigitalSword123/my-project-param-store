@@ -19,9 +19,11 @@ echo $PATH
 sudo apt-get install wget unzip -y
 wget https://releases.hashicorp.com/terraform/1.0.5/terraform_1.0.5_linux_amd64.zip
 unzip terraform_1.0.5_linux_amd64.zip
+cd terraform
+ls -a
+cd ..
+# chmod +x binary_file_name
+
 sudo mv terraform /usr/local/bin
 
-cd /usr/local/bin/terraform
-ls -a
-# chmod +x binary_file_name
 terraform -v
