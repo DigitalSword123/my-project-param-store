@@ -24,7 +24,7 @@ jobs:
 
       - run: echo "deploy"
       - run: bash ./scripts/install_terraform.sh
-      - run: bash terraform init
+      - run: bash ./terraform init
       - run: bash ./scripts/terraform_plan.sh
       - run: bash ./scripts/terraform_apply.sh
       - run: echo "deployed successfully"
