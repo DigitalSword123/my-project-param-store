@@ -1,5 +1,5 @@
 set -e
 
-export env="stage"
+set env = "uat"
 
 . ./scripts/apply.sh
