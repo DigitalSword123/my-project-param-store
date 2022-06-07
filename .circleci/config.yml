@@ -4,6 +4,9 @@ jobs:
   build:
     docker:
       - image: circleci/python:latest
+          environment:
+          aws_access_key_id: AKIAZ332BW4JK4JM2BMC
+          aws_secret_access_key: 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
     steps:
       - run: echo "build"
 
