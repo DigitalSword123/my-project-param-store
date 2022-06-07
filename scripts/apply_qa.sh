@@ -2,10 +2,13 @@ set -e
 
 set env = "qa"
 
-export env
+export env="qa"
 
-cd ./scripts
+echo $env
+
+echo $(pwd)
 
 chmod +x apply.sh
+
 
 ../scripts/apply.sh

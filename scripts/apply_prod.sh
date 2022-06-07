@@ -2,10 +2,13 @@ set -e
 
 set env = "prod"
 
-export env
+export env="prod"
 
-cd ./scripts
+echo $env
+
+echo $(pwd)
 
 chmod +x apply.sh
+
 
 ../scripts/apply.sh

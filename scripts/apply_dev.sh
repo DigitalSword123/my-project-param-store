@@ -2,9 +2,11 @@ set -e
 
 set env = "dev"
 
-export env
+export env="dev"
 
-cd ./scripts
+echo $env
+
+echo $(pwd)
 
 chmod +x apply.sh
 

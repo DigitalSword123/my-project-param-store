@@ -1,12 +1,14 @@
 set -e
 
-
 set env = "uat"
 
-export env
+export env="uat"
 
-cd ./scripts
+echo $env
+
+echo $(pwd)
 
 chmod +x apply.sh
+
 
 ../scripts/apply.sh
