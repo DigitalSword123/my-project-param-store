@@ -2,7 +2,7 @@ set -e
 
 set env = "dev"
 
-cd ./script
+cd ./scripts
 
 chmod +x apply.sh
 

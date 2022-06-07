@@ -2,8 +2,8 @@ set -e
 
 export env="qa"
 
-cd ./script
+cd ./scripts
 
 chmod +x apply.sh
 
-. ./scripts/apply.sh
+./scripts/apply.sh
