@@ -34,4 +34,4 @@ id_ed25519
 terraform.exe
 ./vars/terraform.exe
 .terraform
-# .aws
+.aws
