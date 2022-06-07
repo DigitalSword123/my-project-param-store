@@ -34,7 +34,7 @@ jobs:
       # - run: bash ./scripts/terraform_apply.sh
       - run: echo `deployed successfully in ${tag} environment`
 
-  deploy_stage:
+  deploy_dev:
     <<: *deploy-env
     environment:
       tag: dev
@@ -65,7 +65,25 @@ workflows:
           filters:
             branches:
               only: main
-      - deploy_stage:
+      - deploy_dev:
+          filters:
+            branches:
+              only: main
+          requires:
+            - build 
+      - deploy_qa:
+          filters:
+            branches:
+              only: main
+          requires:
+            - build 
+      - deploy_uat:
+          filters:
+            branches:
+              only: main
+          requires:
+            - build 
+      - deploy_prod:
           filters:
             branches:
               only: main
