@@ -9,6 +9,10 @@ provider "aws" {
 resource "aws_s3_bucket" "codepipeline_artifacts" {
   bucket = "employee-data-node-terraform-state-bucket-artifacts"
   acl    = "private"
+  
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_ssm_parameter" "parameters" {
@@ -18,7 +22,7 @@ resource "aws_ssm_parameter" "parameters" {
   type        = element(each.value, 0)
   value       = element(each.value, 1)
   tags        = var.master_tags
-  overwrite   =  true
+  overwrite   =  false
 }  
 
 
