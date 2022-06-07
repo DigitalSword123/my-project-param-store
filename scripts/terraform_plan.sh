@@ -6,7 +6,7 @@ terraform init
 # cd ./vars
 for FILE in ./vars/*
     do
-     terraform plan -var-file=$FILE
+     terraform plan -var-file=$FILE 
      echo "printing"$FILE
     done
 
