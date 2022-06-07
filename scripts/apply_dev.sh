@@ -1,6 +1,6 @@
 set -e
 
-set env = "dev"
+export env = "dev"
 
 cd ./scripts
 
