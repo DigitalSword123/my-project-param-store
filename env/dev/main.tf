@@ -19,7 +19,7 @@ resource "aws_ssm_parameter" "parameters" {
   value       = element(each.value, 1)
   tags        = var.master_tags
   overwrite   =  true
-}
+} 
 
 
 # secret for codebuild
