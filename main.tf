@@ -1,7 +1,7 @@
 provider "aws" {
-    shared_config_file = "$HOME/.aws/credentials"
+    shared_credentials_file = "$HOME/.aws/credentials"
     profile = "default"
-    region  = "ap-south-1"
+    region = "ap-south-1"
 }
 
 resource "aws_s3_bucket" "codepipeline_artifacts" {
