@@ -5,5 +5,5 @@ echo "Fetching values files"
 for FILE in ./vars/*
     do
      terraform apply -var-file=$FILE -auto-approve
-     echo "printing"$FILE
+     echo "printing "$FILE
     done
