@@ -21,7 +21,6 @@ variable "ssm-path" {
 
 variable "env" {
   description = "project environmnet"
-  type = string
 }
 
 variable "region" {
