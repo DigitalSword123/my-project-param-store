@@ -25,7 +25,8 @@ jobs:
       # - run: bash ./scripts/apply_${tag}.sh
       # - run: echo "deployed successfully"
 
-      - run: echo `deploy for ${tag} environment`
+      - run: echo "deploy"
+      - run: echo ${tag}
       - run: bash ./scripts/install_terraform.sh
       - run: bash ./scripts/apply_${tag}.sh
       # - run: bash terraform -v
@@ -38,8 +39,6 @@ jobs:
     <<: *deploy-env
     environment:
       tag: dev
-
-
 
   deploy_qa:
     <<: *deploy-env
