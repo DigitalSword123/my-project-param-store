@@ -1,6 +1,8 @@
 set -e
 
-export env="qa"
+set env = "qa"
+
+export env
 
 cd ./scripts
 

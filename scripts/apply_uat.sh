@@ -1,6 +1,9 @@
 set -e
 
-export env = "uat"
+
+set env = "uat"
+
+export env
 
 cd ./scripts
 

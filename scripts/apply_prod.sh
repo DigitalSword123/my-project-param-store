@@ -1,6 +1,8 @@
 set -e
 
-export env = "prod"
+set env = "prod"
+
+export env
 
 cd ./scripts
 
