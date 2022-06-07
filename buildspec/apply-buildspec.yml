@@ -1,17 +1,17 @@
-version: 0.2
-phases:
-  pre_build:
-    commands:
-      - terraform init
-      - terraform validate
+# version: 0.2
+# phases:
+#   pre_build:
+#     commands:
+#       - terraform init
+#       - terraform validate
   
-  build:
-    commands:
-      script: |
-        Write-Host "Fetching values files"
-        cd vars
-        $a=git ls-files
-        foreach ($i in $a) {
-            terraform apply -var-file=vars/i
-            echo "printing"$i
-        }
+#   build:
+#     commands:
+#       script: |
+#         Write-Host "Fetching values files"
+#         cd vars
+#         $a=git ls-files
+#         foreach ($i in $a) {
+#             terraform apply -var-file=vars/i
+#             echo "printing"$i
+#         }
