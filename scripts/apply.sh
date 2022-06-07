@@ -1,5 +1,7 @@
 echo $env
 
+echo $(pwd)
+
 cd ./env/${env}
 
 terraform init
