@@ -2,7 +2,7 @@ set -e
 
 echo "Fetching values files"
 # terraform init -backend-config="access_key=<your access key>" -backend-config="secret_key=<your secret key>"
-terraform init -backend-config="access_key=AKIAZ332BW4JK4JM2BMC" -backend-config="secret_key=ty1dtqDRzG5wJa52qWNUK3iOrNEMMxC8m3EYP2qG" 
+terraform init
 # cd ./vars
 for FILE in ./vars/*
     do
