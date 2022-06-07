@@ -1,6 +1,8 @@
 provider "aws" {
-  profile = "default"
-  region = "ap-south-1"
+    profile = "default"
+    region  = "ap-south-1"
+    access_key = "AKIAZ332BW4JK4JM2BMC"
+    secret_key = "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"
 }
 
 resource "aws_s3_bucket" "codepipeline_artifacts" {
