@@ -41,12 +41,12 @@ jobs:
 
 
 
-  deploy_prod:
+  deploy_qa:
     <<: *deploy-env
     environment:
       tag: qa
   
-  deploy_prod:
+  deploy_uat:
     <<: *deploy-env
     environment:
       tag: uat
