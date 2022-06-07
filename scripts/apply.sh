@@ -5,8 +5,9 @@ echo $(pwd)
 cd ../env/${env}
 
 echo $(pwd)
+echo $FILE
 
 terraform init
-terraform plan
+terraform plan -var-file=$FILE 
 
-terraform apply -auto-approve
+terraform apply -var-file=$FILE  -auto-approve
