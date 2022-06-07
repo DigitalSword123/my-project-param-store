@@ -3,7 +3,7 @@ set -e
 set env = "uat"
 
 export env="uat"
-export FILE="uat-ap-south-1.tfvars"
+export FILE="./vars/uat-ap-south-1.tfvars"
 echo $env
 
 echo $(pwd)
