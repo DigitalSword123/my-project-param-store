@@ -1,4 +1,4 @@
-env = "QA"
+env = "qa"
 
 project = "node"
 
