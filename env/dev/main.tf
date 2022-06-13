@@ -22,7 +22,7 @@ resource "aws_ssm_parameter" "parameters" {
   type        = element(each.value, 0)
   value       = element(each.value, 1)
   tags        = var.master_tags
-  overwrite   =  true
+  # overwrite   =  true
 }
 
 resource "aws_ssm_parameter" "parameters2" {
