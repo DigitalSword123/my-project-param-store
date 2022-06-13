@@ -54,6 +54,6 @@ variable "master_tags" {
 # }
 
 variable "ssm-infra-path" {
-  type = string
+  type    = string
   default = "project/infra"
 }

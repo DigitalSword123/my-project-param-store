@@ -21,7 +21,7 @@ variable "ssm-path" {
 
 variable "env" {
   description = "project environmnet"
-  type = string
+  type        = string
 }
 
 variable "region" {
@@ -55,6 +55,6 @@ variable "master_tags" {
 # }
 
 variable "ssm-infra-path" {
-  type = string
+  type    = string
   default = "project/infra"
 }
