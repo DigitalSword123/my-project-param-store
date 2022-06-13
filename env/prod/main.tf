@@ -6,17 +6,17 @@ provider "aws" {
   secret_key = "ty1dtqDRzG5wJa52qWNUK3iOrNEMMxC8m3EYP2qG"
 }
 
-resource "aws_s3_bucket" "codepipeline_artifacts" {
-  bucket = "employee-data-node-terraform-state-bucket-artifacts"
-  acl    = "private"
-  versioning {
-    enabled = true
-  }
+# resource "aws_s3_bucket" "codepipeline_artifacts" {
+#   bucket = "employee-data-node-terraform-state-bucket-artifacts"
+#   acl    = "private"
+#   versioning {
+#     enabled = true
+#   }
 
-  lifecycle {
-    prevent_destroy = true
-  }
-}
+#   lifecycle {
+#     prevent_destroy = true
+#   }
+# }
 
 resource "aws_ssm_parameter" "parameters" {
   for_each    = var.ssm-infra-key-value-map
