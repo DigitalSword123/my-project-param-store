@@ -22,12 +22,9 @@ resource "aws_ssm_parameter" "parameters" {
   type        = element(each.value, 0)
   value       = element(each.value, 1)
   tags        = var.master_tags
-  # overwrite   =  true
+  overwrite   =  true
 }
 
-resource "aws_ssm_parameter" "parameters2" {
-  for_each    = var.ssm-infra-key-value-map
-}
 
 # secret for codebuild
 # arn:aws:secretsmanager:ap-south-1:678323926802:secret:codebuild/myproject-wYNmpL
