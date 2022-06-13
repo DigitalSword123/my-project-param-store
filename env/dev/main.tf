@@ -10,6 +10,10 @@ resource "aws_s3_bucket" "codepipeline_artifacts" {
   bucket = "employee-data-node-terraform-state-bucket-artifacts"
   acl    = "private"
 
+  versioning {
+    enabled = true
+  }
+
   lifecycle {
     prevent_destroy = true
   }
