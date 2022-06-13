@@ -19,6 +19,7 @@ ssm-infra-key-value-map = {
   "lambda/timeout"                                      = ["String", "60", "lambda timeout"]
   "lambda/stateBucket"                                  = ["String", "employee-data-node-terraform-state-bucket", "stateBucket"]
   "ssh/ips"                                             = ["String", "10.0.0.0/8", "ssh ips"]
-  "/project/678323926802/iam/lambda-execution-role-arn" = ["String", "arn:aws:iam::678323926802:role/Lambda-nodejs-executionrole", "lambda role"]
+  "678323926802/iam/lambda-execution-role-arn" = ["String", "arn:aws:iam::678323926802:role/Lambda-nodejs-executionrole", "lambda role"]
 }
+
 
