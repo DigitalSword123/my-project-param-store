@@ -23,7 +23,7 @@ jobs:
     #   TARGET_AWS_REGION : my-value-2
     
     steps:
-     - checkout
+     - checkout 
      - setup_remote_docker
      - run: echo "build docker image with required instllation of node and git"
      - run: echo "Node versiopn in docker is"
