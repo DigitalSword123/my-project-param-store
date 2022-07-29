@@ -16,7 +16,7 @@ echo "${VAR_FILE}"
 
 
 terraform init \
- -backend-config="key=param-store/${TARGET_ENV_DEV}/terraform.tfstate" \
+ -backend-config="key=param-store/${TARGET_ENV_UAT}/terraform.tfstate" \
  -backend-config="access_key=${AWS_ACCESS_KEY}" \
  -backend-config="secret_key=${AWS_SECRET_KEY}"
 
