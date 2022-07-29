@@ -127,7 +127,6 @@ workflows:
       - trigger_qa:
           type: approval
       - deploy_qa:
-          type: approval
           filters:
             branches:
               only: main
@@ -138,7 +137,6 @@ workflows:
       - trigger_uat:
           type: approval
       - deploy_uat:
-          type: approval
           filters:
             branches:
               only: main
