@@ -1,18 +1,56 @@
-version: 2
-
+version: '2.1'
+orbs:
+  node: circleci/node@5.0.2
+  aws-cli: circleci/aws-cli@2.0
 jobs:
+# https://medium.com/geekculture/configure-aws-credentials-in-circle-ci-8353d765aa15
+  aws-cli-cred-setup:
+    executor: aws-cli/default
+    steps:
+      - aws-cli/setup:
+          aws-access-key-id: AWS_ACCESS_KEY
+          aws-secret-access-key: AWS_SECRET_KEY
+  
   build:
     docker:
-      - image: circleci/python:latest
-        # environment:
-        #   aws_access_key_id: AKIAZ332BW4JK4JM2BMC
-        #   aws_secret_access_key: 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
+      - image: circleci/node:latest
+    working_directory: ~/param-store
+    # environment:
+    #   TARGET_ENV_DEV        : dev
+    #   TARGET_ENV_QA         : qa
+    #   TARGET_ENV_UAT        : uat
+    #   TARGET_ENV_PROD       : prod
+    #   TARGET_AWS_REGION : my-value-2
+    
     steps:
-      - run: echo "build"
+     - checkout
+     - setup_remote_docker
+     - run: echo "build docker image with required instllation of node and git"
+     - run: echo "Node versiopn in docker is"
+     - run: node --version
+     - run: npm install --save-dev
+    
+  npm_build_and_test: &npm_build_and_test # this can be any name you choose
+    docker:
+      - image: circleci/node:latest # use the default executor defined within the orb
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn test
+          name: Run tests
+      - run:
+          command: yarn build
+          name: Build app
+      - persist_to_workspace:
+          root: ~/node-server-employee-data
+          paths:
+            - .
 
   deploy: &deploy-env
     docker:
-      - image: circleci/python:latest
+      - image: circleci/node:latest
     
     working_directory: ~/param-store
 
@@ -26,9 +64,27 @@ jobs:
       # - run: echo "deployed successfully"
 
       - run: echo "deploy"
+      - run: echo $(pwd)
       - run: echo ${tag}
-      - run: bash ./scripts/install_terraform.sh
-      - run: bash ./scripts/apply_${tag}.sh
+      - run: echo $PATH
+      - run: echo $TARGET_ENV_DEV
+      # - run: sudo chmod 777 install_terraform.sh
+      # - run: bash install_terraform.sh
+      - run : 
+          name: terraform installation
+          command: |
+            sudo apt-get install wget unzip -y
+            sudo apt-get install file
+            wget https://releases.hashicorp.com/terraform/1.2.2/terraform_1.2.2_linux_amd64.zip
+            unzip terraform_1.2.2_linux_amd64.zip
+            ls -a
+            chmod +x terraform
+            file terraform
+            uname -a
+            sudo mv terraform /usr/local/bin
+            terraform -v
+      - run: ls -al
+      - run: bash ./terraform_project/scripts/apply_${tag}.sh
       # - run: bash terraform -v
       # - run: bash terraform init
       # - run: bash ./scripts/terraform_plan.sh
@@ -57,35 +113,42 @@ jobs:
 
 workflows:
   version: 2
-
-  stage_workflow:
+  # this aws-cli workflow for terraform work
+  aws-cli:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: main
+      - hold:
+          type: approval
+      - aws-cli-cred-setup:
+          context: aws
       - deploy_dev:
           filters:
             branches:
               only: main
           requires:
-            - build 
+            - aws-cli-cred-setup
       - deploy_qa:
+          type: approval
           filters:
             branches:
               only: main
           requires:
-            - build 
+            - hold
+            - aws-cli-cred-setup
+            - deploy_dev
       - deploy_uat:
+          type: approval
           filters:
             branches:
               only: main
           requires:
-            - build 
+            - hold
+            - aws-cli-cred-setup
+            - deploy_qa
       - deploy_prod:
           filters:
             branches:
               only: main
           requires:
-            - build 
-            
+            - hold
+            - aws-cli-cred-setup
+            - deploy_uat

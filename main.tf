@@ -1,13 +1,9 @@
 provider "aws" {
-  # shared_credentials_file = "$HOME/.aws/credentials"
-  # profile = "default"
   region     = "ap-south-1"
-  access_key = "AKIAZ332BW4JK4JM2BMC"
-  secret_key = "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"
 }
 
 # resource "aws_s3_bucket" "codepipeline_artifacts" {
-#   bucket = "employee-data-node-terraform-state-bucket-artifacts"
+#   bucket = "node-terraform-state-bucket-artifacts"
 #   acl    = "private"
 
 #   versioning {
@@ -28,14 +24,3 @@ resource "aws_ssm_parameter" "parameters" {
   tags        = var.master_tags
   overwrite   =  true
 }
-
-
-# secret for codebuild
-# arn:aws:secretsmanager:ap-south-1:678323926802:secret:codebuild/myproject-wYNmpL
-#  Username amiya
-# Password Aklm@*6754
-
-#  codepipeline id 26124204
-# arn:aws:codestar-connections:ap-south-1:678323926802:connection/d4615afb-0fa1-41d8-b8b4-4acb18b987eb
-
-
