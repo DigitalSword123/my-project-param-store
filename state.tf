@@ -5,5 +5,6 @@ terraform {
     bucket     = "node-terraform-state-bucket"
     encrypt    = false
     region     = "ap-south-1"
+    key        = "param-store/${var.env}/terraform.tfstate"
   }
 }

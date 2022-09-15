@@ -24,3 +24,26 @@ resource "aws_ssm_parameter" "parameters" {
   tags        = var.master_tags
   overwrite   =  true
 }
+
+data "aws_lambda_function" "source_lambda_name"{
+  name= "get-node-employee-data-${var.env}"
+}
+
+resource "aws_cloudwatch_event_rule" "employee_data_event" {
+  name = "employee-data-lambda-event-rule"
+  description = "retry scheduled every 2 min"
+  schedule_expression = "rate(2 minutes)"
+}
+
+resource "aws_cloudwatch_event_target" "profile_generator_lambda_target" {
+  arn = data.source_lambda_name.name.lambda_function_arn
+  rule = aws_cloudwatch_event_rule.employee_data_event.name
+}
+
+resource "aws_lambda_permission" "allow_cloudwatch_to_call_rw_fallout_retry_step_deletion_lambda" {
+  statement_id = "AllowExecutionFromCloudWatch"
+  action = "lambda:InvokeFunction"
+  function_name = data.source_lambda_name.name.lambda_function_arn
+  principal = "events.amazonaws.com"
+  source_arn = aws_cloudwatch_event_rule.employee_data_event.arn
+}
