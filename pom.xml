@@ -44,7 +44,7 @@
                 </goals>
                 <configuration>
                     <descriptor>${project.basedir}/terraform-zip.xml</descriptor>
-                    <formats>zip</fomrats>
+                    <formats>zip</formats>
                 </configuration>
             </execution>
         </executions>
