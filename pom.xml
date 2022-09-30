@@ -3,24 +3,24 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.myproject</groupId>
   <artifactId>param-store</artifactId>
-  <version>0.0.100-SNAPSHOT</version>
+  <version>0.0.100</version>
   <name>project infra and secret repository in aws</name>
     <scm>
         <url>https://github.com/DigitalSword123/my-project-param-store/tree/main</url>
         <connection>scm:git:ssh://git@github.com:DigitalSword123/my-project-param-store.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:DigitalSword123/my-project-param-store.git</developerConnection>
-        <tag>param-store-tf-0.0.1</tag>
+        <tag>param-store-0.0.100</tag>
     </scm>
    <distributionManagement>
         <repository>
             <id>releases</id>
             <name>artifactory-releases</name>
-            <url></url>
+            <url />
         </repository>
         <snapshotRepository>
             <id>releases</id>
             <name>artifactory-snapshots</name>
-            <url></url>
+            <url />
         </snapshotRepository>
    </distributionManagement>
   <build>

@@ -35,3 +35,9 @@ terraform.exe
 ./vars/terraform.exe
 .terraform
 # .aws
+
+release.properties
+
+target
+
+pom.xml.releaseBackup
