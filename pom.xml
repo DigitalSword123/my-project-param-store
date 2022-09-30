@@ -6,8 +6,9 @@
   <version>0.0.100-SNAPSHOT</version>
   <name>project infra and secret repository in aws</name>
     <scm>
-        <url>https://github.com/DigitalSword123/my-project-param-store</url>
-        <connection>scm:git@github.com:DigitalSword123/my-project-param-store.git</connection>
+        <url>https://github.com/DigitalSword123/my-project-param-store/tree/main</url>
+        <connection>scm:git:ssh://git@github.com:DigitalSword123/my-project-param-store.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:DigitalSword123/my-project-param-store.git</developerConnection>
         <tag>param-store-tf-0.0.1</tag>
     </scm>
    <distributionManagement>
